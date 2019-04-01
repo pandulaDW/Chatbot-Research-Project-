@@ -1,0 +1,80 @@
+intents:
+  - greet
+  - bye
+  - inform_general_statistics
+  - wrong_spellings
+  - reveal_dataset
+  - how_to_intepret
+  - what_is
+  - how_to_apply
+  - assess_accuracy_model
+  - diagnostics
+  - model_selection_methods
+  - use_categorical_variables
+  - outliers
+  - Multicollinearity
+  - improve_accuracy
+  - Assumptions
+  - non_linear_relationships
+  - summarise
+  - filter
+  - group_by
+
+actions:
+- utter_greet
+- utter_bye
+- actions.ActionWiki
+- actions.ActiongetObs
+- actions.ActiongetVar
+- actions.ActiongetAnalysisType
+- actions.ActionAccessDB
+- actions.ActionAcessDataScience
+
+slots:
+  statTerm:
+    type: text
+  dataset:
+    type: bool
+  num_observations:
+    type: float
+    min_value:  0.0
+    max_value:  1000000000000.0
+  num_variables:
+    type: float
+    min_value:  0.0
+    max_value:  100.0
+  default_ml_type:
+    type: categorical
+    values:
+      - multiple regression
+      - logistic regression
+      - random forest
+      - decision tree
+      - kmeans clustering
+      - hierachical clustering
+      - principal ca
+
+  given_ml:
+    type: text    
+
+templates:
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "Hey! How can I help?"
+  - text: "Hey you, long time no see"
+
+  utter_bye:
+  - text: "Bye"
+  - text: "Bye-bye"
+  - text: "Byeeee :)"
+  - text: "See you soon"
+
+  utter_default:
+  - text: "This is not clear"
+
+entities:
+  - statTerm
+  - dataset
+  - given_ml
+
+

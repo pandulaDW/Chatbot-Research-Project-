@@ -1,0 +1,56 @@
+{
+  "action_fingerprints": {
+    "action_listen": {
+      "slots": [
+        "given_ml",
+        "statTerm"
+      ]
+    },
+    "utter_bye": {
+      "slots": []
+    },
+    "action_general_stat": {
+      "slots": [
+        "statTerm"
+      ]
+    },
+    "action_get_obs": {
+      "slots": [
+        "num_observations"
+      ]
+    },
+    "action_get_var": {
+      "slots": [
+        "num_variables"
+      ]
+    },
+    "action_get_analysis_type": {
+      "slots": [
+        "default_ml_type"
+      ]
+    },
+    "action_access_db": {
+      "slots": [
+        "given_ml"
+      ]
+    },
+    "utter_greet": {
+      "slots": []
+    },
+    "action_default_fallback": {
+      "slots": []
+    }
+  },
+  "rasa_core": "0.10.4",
+  "max_histories": [
+    2,
+    5,
+    null
+  ],
+  "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble",
+  "policy_names": [
+    "rasa_core.policies.memoization.MemoizationPolicy",
+    "rasa_core.policies.keras_policy.KerasPolicy",
+    "rasa_core.policies.fallback.FallbackPolicy"
+  ]
+}

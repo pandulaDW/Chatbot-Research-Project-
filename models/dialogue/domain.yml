@@ -1,0 +1,103 @@
+%YAML 1.1
+---
+action_factory: null
+action_names:
+- utter_greet
+- utter_bye
+- action_general_stat
+- action_get_obs
+- action_get_var
+- action_get_analysis_type
+- action_access_db
+actions:
+- utter_greet
+- utter_bye
+- actions.ActionWiki
+- actions.ActiongetObs
+- actions.ActiongetVar
+- actions.ActiongetAnalysisType
+- actions.ActionAccessDB
+config:
+  store_entities_as_slots: true
+entities:
+- statTerm
+- dataset
+- given_ml
+intents:
+- greet:
+    use_entities: true
+- bye:
+    use_entities: true
+- inform_general_statistics:
+    use_entities: true
+- wrong_spellings:
+    use_entities: true
+- reveal_dataset:
+    use_entities: true
+- how_to_intepret:
+    use_entities: true
+- what_is:
+    use_entities: true
+- how_to_apply:
+    use_entities: true
+- assess_accuracy_model:
+    use_entities: true
+- diagnostics:
+    use_entities: true
+- model_selection_methods:
+    use_entities: true
+- use_categorical_variables:
+    use_entities: true
+- outliers:
+    use_entities: true
+- Multicollinearity:
+    use_entities: true
+- improve_accuracy:
+    use_entities: true
+- Assumptions:
+    use_entities: true
+- non_linear_relationships:
+    use_entities: true
+slots:
+  dataset:
+    initial_value: null
+    type: rasa_core.slots.BooleanSlot
+  default_ml_type:
+    initial_value: null
+    type: rasa_core.slots.CategoricalSlot
+    values:
+    - multiple regression
+    - logistic regression
+    - random forest
+    - decision tree
+    - kmeans clustering
+    - hierachical clustering
+    - principal ca
+  given_ml:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  num_observations:
+    initial_value: null
+    max_value: 1000000000000.0
+    min_value: 0.0
+    type: rasa_core.slots.FloatSlot
+  num_variables:
+    initial_value: null
+    max_value: 100.0
+    min_value: 0.0
+    type: rasa_core.slots.FloatSlot
+  statTerm:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_bye:
+  - text: Bye
+  - text: Bye-bye
+  - text: Byeeee :)
+  - text: See you soon
+  utter_default:
+  - text: This is not clear
+  utter_greet:
+  - text: Hey! How are you?
+  - text: Hey! How can I help?
+  - text: Hey you, long time no see
